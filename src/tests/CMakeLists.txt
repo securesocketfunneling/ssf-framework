@@ -75,3 +75,19 @@ add_target("interface_layer_tests"
     "interface_layer_tests.cpp"
     ${SSF_FRAMEWORK_LAYER_TEST_FIXTURES_FILES}
 )
+
+# --- Routing layer tests
+add_target("routing_layer_tests"
+  TYPE
+    executable ${SSF_FRAMEWORK_EXEC_FLAG} TEST
+  LINKS 
+    ${OpenSSL_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${SSF_FRAMEWORK_PLATFORM_SPECIFIC_LIB_DEP}
+    lib_ssf_network
+  PREFIX_SKIP     .*/src
+  HEADER_FILTER   "\\.h(h|m|pp|xx|\\+\\+)?" 
+  FILES
+    "routing_layer_tests.cpp"
+    ${SSF_FRAMEWORK_LAYER_TEST_FIXTURES_FILES}
+)
