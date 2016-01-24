@@ -43,6 +43,16 @@ file(GLOB_RECURSE SSF_FRAMEWORK_LAYER_FILES
     "${SSF_FRAMEWORK_SRC_DIR}/ssf/layer/*.cpp"
     "${SSF_FRAMEWORK_SRC_DIR}/ssf/layer/*.ipp")
 
+file(GLOB_RECURSE SSF_FRAMEWORK_INTERFACES_SYSTEM_FILES
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*interface*.h"
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*interface*.cpp"
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*interface*.ipp")
+
+file(GLOB_RECURSE SSF_FRAMEWORK_ROUTERS_SYSTEM_FILES
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*router*.h"
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*router*.cpp"
+    "${SSF_FRAMEWORK_SRC_DIR}/ssf/system/*router*.ipp")
+
 set(BOOST_ROOT
       "${SSF_FRAMEWORK_THIRDPARTY_DIR}/boost" CACHE PATH "Path of boost library")
 message("** BOOST_ROOT: ${BOOST_ROOT}")

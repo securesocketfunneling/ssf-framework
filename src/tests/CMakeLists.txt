@@ -107,3 +107,38 @@ add_target("transport_layer_tests"
     "transport_layer_tests.cpp"
     ${SSF_FRAMEWORK_LAYER_TEST_FIXTURES_FILES}
 )
+
+# --- Interface System tests
+add_target("interfaces_system_tests"
+  TYPE
+    executable ${SSF_FRAMEWORK_EXEC_FLAG} TEST
+  LINKS 
+    ${OpenSSL_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${SSF_FRAMEWORK_PLATFORM_SPECIFIC_LIB_DEP}
+    lib_ssf_network
+  PREFIX_SKIP     .*/src
+  HEADER_FILTER   "\\.h(h|m|pp|xx|\\+\\+)?" 
+  FILES
+    "interfaces_system_tests.cpp"
+    ${SSF_FRAMEWORK_LAYER_TEST_FIXTURES_FILES}
+    ${SSF_FRAMEWORK_INTERFACES_SYSTEM_FILES}
+)
+
+# --- Router System tests
+add_target("router_system_tests"
+  TYPE
+    executable ${SSF_FRAMEWORK_EXEC_FLAG} TEST
+  LINKS 
+    ${OpenSSL_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${SSF_FRAMEWORK_PLATFORM_SPECIFIC_LIB_DEP}
+    lib_ssf_network
+  PREFIX_SKIP     .*/src
+  HEADER_FILTER   "\\.h(h|m|pp|xx|\\+\\+)?" 
+  FILES
+    "router_system_tests.cpp"
+    ${SSF_FRAMEWORK_LAYER_TEST_FIXTURES_FILES}
+    ${SSF_FRAMEWORK_INTERFACES_SYSTEM_FILES}
+    ${SSF_FRAMEWORK_ROUTERS_SYSTEM_FILES}
+)
