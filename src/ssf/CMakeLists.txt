@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 2.8)
+
+add_target("lib_ssf_network"
+  TYPE
+    library ${SSF_FRAMEWORK_EXEC_FLAG} STATIC
+  LINKS 
+    ${OpenSSL_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${SSF_FRAMEWORK_PLATFORM_SPECIFIC_LIB_DEP}
+  PREFIX_SKIP     .*/src
+  HEADER_FILTER   "\\.h(h|m|pp|xx|\\+\\+)?" 
+  FILES
+    ${SSF_FRAMEWORK_COMMON_ERROR_FILES}
+    ${SSF_FRAMEWORK_COMMON_IO_FILES}
+    ${SSF_FRAMEWORK_COMMON_NETWORK_FILES}
+    ${SSF_FRAMEWORK_COMMON_UTILS_FILES}
+    ${SSF_FRAMEWORK_LAYER_FILES}
+  INCLUDE_DIRECTORIES
+    ${OpenSSL_INCLUDE_DIRS}
+    ${Boost_INCLUDE_DIRS}
+)
+
+target_include_directories(lib_ssf_network
+  INTERFACE
+    ${OpenSSL_INCLUDE_DIRS}
+    ${Boost_INCLUDE_DIRS}
+    ${SSF_FRAMEWORK_SRC_DIR}
+)
+  
